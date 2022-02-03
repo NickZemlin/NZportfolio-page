@@ -1,5 +1,5 @@
 {
-  "name": "secretproject",
+  "name": "nzportfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-gooey-cursor": "^1.0.3",
+    "vue-i18n": "^9.2.0-beta.26",
+    "vue-kinesis": "^2.0.5",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
