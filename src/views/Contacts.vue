@@ -129,7 +129,6 @@ export default {
     },
     methods:{
         inputChange(value){
-            console.log(value)
             if (value[1] == 'Name' || value[1] == "Имя"){
                 this.name = value[0]
             }
