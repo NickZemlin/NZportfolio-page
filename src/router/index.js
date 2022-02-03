@@ -5,8 +5,8 @@ import Portfolio from '../views/Portfolio.vue'
 import PathNotFound from '../views/PathNotFound'
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    // history: createWebHistory(),
+    // history: createWebHashHistory(),
+    history: createWebHistory(),
     routes: [
         {
         path: '/',
@@ -31,7 +31,8 @@ const router = createRouter({
         name: '404',
         component: PathNotFound,
         meta: {}
-        }
+        },
+        
     ]
     })
 

@@ -1,6 +1,7 @@
 <template>
     <div class="contacts-wrap">
         <div class="contacts-left">
+        
             <div class="contacts-links-wrap">
                 <a href="https://github.com/NickZemlin" target="_blank">
                     <div class="contacts-link link1">
@@ -110,8 +111,10 @@
 import TextInput from '../components/TextInput.vue'
 import Button from '../components/Button.vue'
 import SnackBar from '../components/SnackBar.vue'
+
 export default {
     name: "Contacts",
+    inject: ['API_KEY'],
     components: {
         TextInput,
         Button,
@@ -126,10 +129,11 @@ export default {
     },
     methods:{
         inputChange(value){
-            if (value[1] == 'Name'){
+            console.log(value)
+            if (value[1] == 'Name' || value[1] == "Имя"){
                 this.name = value[0]
             }
-            if (value[1] == 'Contact'){
+            if (value[1] == 'Contact' || value[1] == "Связь"){
                 this.contact = value[0]
             }   
         },
@@ -139,9 +143,16 @@ export default {
             setTimeout(() =>{
                 this.snack = false
             }, 5000)
+            this.test()
         },
         snackUp(){
             this.snack = false
+        },
+        test(){
+            let data = {"msg" : `*Имя:* ${this.name} \n*Контакт:* ${this.contact}`}
+            this.axios.post(this.API_KEY, data).then((response) => {
+                console.log(response.data)
+            })
         }
     },
     computed:{
@@ -157,7 +168,8 @@ export default {
         '$i18n.locale': function() {
             document.title = "Nick Zemlin " + this.$t("message.navContacts")
         }
-    }
+    },
+
 }
 </script>
 

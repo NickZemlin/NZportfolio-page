@@ -4,6 +4,12 @@ import router from './router'
 
 import VueKinesis from "vue-kinesis";
 import { createI18n } from 'vue-i18n/index'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+import STORED_API_KEY from '../apikeys.txt'
+const API_KEY = STORED_API_KEY
+
 
 const messages = {
     en: {
@@ -168,5 +174,5 @@ const i18n = createI18n({
     })
 
 
-createApp(App).use(router).use(i18n).use(VueKinesis).mount('#app')
+createApp(App).use(router).provide('API_KEY', API_KEY).use(i18n).use(VueAxios, axios).use(VueKinesis).mount('#app')
 
