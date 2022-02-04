@@ -138,20 +138,20 @@ export default {
         },
         submit(){
             console.log("add telegram bot hook inthere")
-            this.snack = true
+            // this.snack = true
             setTimeout(() =>{
                 this.snack = false
             }, 5000)
-            this.test()
+            this.postReq()
         },
         snackUp(){
             this.snack = false
         },
-        test(){
+        postReq(){
             let data = {"msg" : `*Имя:* ${this.name} \n*Контакт:* ${this.contact}`}
-            this.axios.post(this.API_KEY, data).then((response) => {
-                console.log(response.data)
-            })
+            if (this.name && this.contact){this.axios.post(this.API_KEY, data).then((response) => {
+                this.snack = true
+            })}
         }
     },
     computed:{
@@ -159,6 +159,8 @@ export default {
             let result = [this.name, this.contact]
             return result
         }
+    },
+    created(){
     },
     mounted(){
         document.title = "Nick Zemlin " + this.$t("message.navContacts")
