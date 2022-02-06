@@ -26,8 +26,8 @@ portfolioSelector(el){
 </style>
 ```
 ### Things i want to add in the future:
-1. Move everything from vue CLI to Vite.
-2. Move from Options API to [Script Setup](https://v3.vuejs.org/api/sfc-script-setup.html).
+1. Move everything from vue [CLI](https://cli.vuejs.org/) to [Vite](https://vitejs.dev/).
+2. Move from [Options API](https://v3.vuejs.org/api/options-api.html) to [Script Setup](https://v3.vuejs.org/api/sfc-script-setup.html).
 3. Optional Input field into a contact form for additional information.
 ___
 ### Dependencies:
