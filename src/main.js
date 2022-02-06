@@ -32,6 +32,7 @@ const messages = {
             formError: 'Names usually dont include numbers',
             submit: 'Submit',
             contactsSnack: 'Info was submitted',
+            contactsSnackError: 'Something went wrong',
             close: 'close'
         },
         article:{
@@ -102,6 +103,7 @@ const messages = {
             formError: 'Обычно в именнах нет цифр',
             submit: 'Отправить',
             contactsSnack: 'Информация отправлена',
+            contactsSnackError: 'Что-то пошло не так',
             close: 'закрыть'
         },
         article:{

@@ -30,7 +30,7 @@
                 <TextInput @inputChange="inputChange" :label="$t('message.contact')" :helper="$t('message.contactHelper')"/>
                 <Button @click="submit()" class="contacts-form-button" :text="$t('message.submit')" color="red" type="filled" />
                 <transition name="snacktransition">
-                <SnackBar v-if="snack" :text="$t('message.contactsSnack')" button="ok" color="cyan" class="snack" @snackUp="snackUp()"/>
+                <SnackBar v-if="snack" :text="snackText" button="ok" color="cyan" class="snack" @snackUp="snackUp()"/>
                 </transition>
             </div>
         </div>
@@ -124,7 +124,9 @@ export default {
         return{
             name: "",
             contact: "",
-            snack: false
+            snack: false,
+            snackText: "",
+            snackColor: ""
         }
     },
     methods:{
@@ -137,19 +139,27 @@ export default {
             }   
         },
         submit(){
-            console.log("add telegram bot hook inthere")
-            // this.snack = true
-            setTimeout(() =>{
-                this.snack = false
-            }, 5000)
             this.postReq()
         },
         snackUp(){
             this.snack = false
         },
+        snackError(){
+
+        },
         postReq(){
             let data = {"msg" : `*Имя:* ${this.name} \n*Контакт:* ${this.contact}`}
-            if (this.name && this.contact){this.axios.post(this.API_KEY, data).then((response) => {
+            if (this.name && this.contact && !this.snack){this.axios.post(this.API_KEY, data).then((response) => {
+                if (response.status != 200){
+                    this.snackText = this.$t("message.contactsSnackError")
+                    this.snackColor = "red"
+                } else {
+                    this.snackText = this.$t("message.contactsSnack")
+                    this.snackColor = "cyan"
+                }
+                setTimeout(() =>{
+                    this.snack = false
+                }, 5000)
                 this.snack = true
             })}
         }
