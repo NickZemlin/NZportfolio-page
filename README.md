@@ -1,6 +1,6 @@
 # Nick Zemlin personal page
 ## Built with vue3
-Designed with desktop first, which i still consider a mistake on my part.
+Designed with desktop first, which i still consider a mistake on my part. That descision made responsice CSS a wee bit messy
 Design was done only using adobe Illustrator, and as someone that worked as a graphic designer, I, to this day consider AI to be supperior to Figma.
 ___
 ### Notable parts of the project:
